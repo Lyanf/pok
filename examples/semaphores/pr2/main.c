@@ -23,20 +23,20 @@
 
 int main ()
 {
-  uint8_t tid;
-  int ret;
-  pok_thread_attr_t     tattr;
+  //uint8_t tid;
+  //int ret;
+  //pok_thread_attr_t     tattr;
 
-  tattr.priority = 42;
-  tattr.entry = pinger_job;
+  //tattr.priority = 42;
+  //tattr.entry = pinger_job;
 
-  ret = pok_thread_create(&tid , &tattr);
-  printf ("[P2] thread create returns=%d\n", ret);
+  //ret = pok_thread_create(&tid , &tattr);
+  //printf ("[P2] thread create returns=%d\n", ret);
 
-  pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);
-  pok_thread_wait_infinite ();
+  //pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);
+  //pok_thread_wait_infinite ();
 
-  return (1);
+  //return (1);
 }
 
 
