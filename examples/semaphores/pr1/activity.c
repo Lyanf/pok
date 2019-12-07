@@ -24,7 +24,7 @@ extern uint8_t sid;
 uint8_t val;
 void cpu_work(int cycle) {
 	printf("################# test #################\n");
-	uint64_t start, end;
+	pok_time_t start, end;
 	pok_time_get(&start);
 	for (int i = 0; i < cycle; i++) {
 //		for (int j = 2; j < 4; j++) {

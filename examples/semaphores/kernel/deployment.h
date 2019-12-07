@@ -27,6 +27,7 @@
 #define POK_NEEDS_DEBUG        1
 #define POK_NEEDS_CONSOLE      1
 #define POK_NEEDS_LOCKOBJECTS  1
+#define POK_NEEDS_GETTICK 1
 
 #define POK_CONFIG_NB_THREADS       9
 #define POK_CONFIG_NB_LOCKOBJECTS       1
