@@ -27,11 +27,13 @@ void cpu_work(int cycle) {
 	uint64_t start, end;
 	pok_time_get(&start);
 	for (int i = 0; i < cycle; i++) {
-		for (int j = 2; j < 4; j++) {
-			for (int k = 2; k < j; k++) {
-				int temp = j % k;
-			}
-		}
+//		for (int j = 2; j < 4; j++) {
+//			for (int k = 2; k < j; k++) {
+//				int temp = j % k;
+//			}
+//
+		//}
+		pok_thread_sleep(2000000);
 	}
 	pok_time_get(&end);
 	printf("time: %lu\n", end-start);
