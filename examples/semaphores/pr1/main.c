@@ -30,20 +30,26 @@ int main ()
   pok_ret_t ret;
   pok_thread_attr_t     tattr;
 
-  ret = pok_sem_create(&sid , 0, 50, POK_SEMAPHORE_DISCIPLINE_FIFO);
-  printf("线程1创建成功！ return=%d, mid=%d\n", ret, sid);
 
   tattr.priority = 42;
   tattr.entry = pinger_job;
 
   ret = pok_thread_create(&tid , &tattr);
-  printf("[P1] pok_thread_create (1) return=%d\n", ret);
+  printf("线程1创建成功！  return=%d\n", ret);
 
   tattr.priority = 42;
   tattr.entry = pinger_job2;
 
   ret = pok_thread_create(&tid , &tattr);
   printf("线程2创建成功！ return=%d\n", ret);
+
+
+  tattr.priority = 42;
+  tattr.entry = pinger_job3;
+  tattr.period = 10;
+  ret = pok_thread_create(&tid, &tattr);
+  printf("线程3创建成功！ return=%d\n", ret);
+
 
   pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);
   pok_thread_wait_infinite ();
