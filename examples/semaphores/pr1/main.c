@@ -44,11 +44,11 @@ int main ()
   printf("线程2创建成功！ return=%d\n", ret);
 
 
-  tattr.priority = 42;
-  tattr.entry = pinger_job3;
-  tattr.period = 10;
-  ret = pok_thread_create(&tid, &tattr);
-  printf("线程3创建成功！ return=%d\n", ret);
+// tattr.priority = 42;
+// tattr.entry = pinger_job3;
+// tattr.period = 10;
+// ret = pok_thread_create(&tid, &tattr);
+// printf("线程3创建成功！ return=%d\n", ret);
 
 
   pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);

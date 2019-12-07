@@ -18,35 +18,41 @@
 #include <libc/stdio.h>
 #include <core/thread.h>
 #include <core/semaphore.h>
+#include <core/time.h>
 #include <types.h>
-#include <time.h>
 extern uint8_t sid;
 uint8_t val;
 void cpu_work(int cycle) {
-	clock_t start, end;
-	start = clock();
+	printf("################# test #################\n");
+	uint64_t start, end;
+	pok_time_get(&start);
 	for (int i = 0; i < cycle; i++) {
-		for (int j = 2; j < 10000; j++) {
+		for (int j = 2; j < 4; j++) {
 			for (int k = 2; k < j; k++) {
 				int temp = j % k;
 			}
 		}
 	}
-	end = clock();
-	double re = (double)(end - start) / CLOCKS_PER_SEC;
-	printf("%lf\n", re);
+	pok_time_get(&end);
+	printf("time: %lu\n", end-start);
 }
 void* pinger_job()
 {
+	printf("thead 1");
 	cpu_work(10);
+	while(1);
 }
 
 void* pinger_job2()
 {
+	printf("thread 2");
 	cpu_work(20);
+	while(1);
 }
 
 void* pinger_job3()
 {
+	printf("thread 3");
 	cpu_work(5);
+	while(1);
 }
