@@ -140,8 +140,10 @@ uint8_t	pok_elect_partition()
 # if POK_CONFIG_NB_PARTITIONS > 1
   uint64_t now = POK_GETTICK();
 
+  //printf("## in the pok_elect_partition func\n");
   if (pok_sched_next_deadline <= now)
   {
+    //printf("## in the  if of pok_elect_partition func\n");
       /* Here, we change the partition */
 #  if defined (POK_NEEDS_PORTS_SAMPLING) || defined (POK_NEEDS_PORTS_QUEUEING)
 #    if defined (POK_FLUSH_PERIOD)
@@ -406,6 +408,7 @@ void pok_sched_context_switch (const uint32_t elected_id)
 #ifdef POK_NEEDS_SCHED_RMS
 uint32_t pok_sched_part_rms (const uint32_t index_low, const uint32_t index_high,const uint32_t __attribute__((unused)) prev_thread,const uint32_t __attribute__((unused)) current_thread)
 {
+
    uint32_t res;
 #ifdef POK_NEEDS_DEBUG
    uint32_t from;
@@ -463,6 +466,130 @@ uint32_t pok_sched_part_rms (const uint32_t index_low, const uint32_t index_high
 }
 #endif /* POK_NEEDS_SCHED_RMS */
 
+uint32_t pok_sched_part_pri_p (const uint32_t index_low, const uint32_t index_high,const uint32_t __attribute__((unused)) prev_thread,const uint32_t __attribute__((unused)) current_thread)
+{
+   uint32_t res = current_thread;
+   uint8_t p = pok_threads[current_thread].priority;
+   if(res == IDLE_THREAD) {
+       p = 0xff;
+   }
+
+   uint32_t i;
+
+   for(i = index_low; i <= index_high; ++i) {
+        if (pok_threads[i].state == POK_STATE_RUNNABLE && (pok_threads[i].priority < p || pok_threads[res].state != POK_STATE_RUNNABLE)) {
+            res = i;
+            p = pok_threads[i].priority;
+        }
+   }
+
+   if (pok_threads[res].state != POK_STATE_RUNNABLE) {
+        res = IDLE_THREAD;
+   }
+   return res;
+}
+
+uint32_t pok_sched_part_pri_nop (const uint32_t index_low, const uint32_t index_high,const uint32_t __attribute__((unused)) prev_thread,const uint32_t __attribute__((unused)) current_thread)
+{
+    for(uint32_t j = index_low; j < current_thread; ++j) {
+        if(pok_threads[j].state == POK_STATE_RUNNABLE)  {
+            return j;
+        }
+    }
+   uint32_t res = current_thread;
+   uint8_t p = pok_threads[current_thread].priority;
+   if(res == IDLE_THREAD) {
+       p = 0xff;
+   }
+
+   uint32_t i;
+
+   for(i = index_low; i <= index_high; ++i) {
+        if (pok_threads[i].state == POK_STATE_RUNNABLE && (pok_threads[i].priority <= p || pok_threads[res].state != POK_STATE_RUNNABLE)) {
+            res = i;
+            p = pok_threads[i].priority;
+        }
+   }
+
+   if (pok_threads[res].state != POK_STATE_RUNNABLE) {
+        res = IDLE_THREAD;
+   }
+   return res;
+}
+
+uint32_t pok_sched_part_edf_p (const uint32_t index_low, const uint32_t index_high,const uint32_t __attribute__((unused)) prev_thread,const uint32_t __attribute__((unused)) current_thread)
+{
+   uint32_t res = current_thread;
+   uint8_t p = pok_threads[current_thread].deadline;
+   if(res == IDLE_THREAD) {
+       p = 0xff;
+   }
+
+   uint32_t i;
+
+   for(i = index_low; i <= index_high; ++i) {
+        if (pok_threads[i].state == POK_STATE_RUNNABLE && (pok_threads[i].deadline < p || pok_threads[res].state != POK_STATE_RUNNABLE)) {
+            res = i;
+            p = pok_threads[i].deadline;
+        }
+   }
+
+   if (pok_threads[res].state != POK_STATE_RUNNABLE) {
+        res = IDLE_THREAD;
+   }
+   return res;
+}
+
+uint32_t pok_sched_part_edf_nop (const uint32_t index_low, const uint32_t index_high,const uint32_t __attribute__((unused)) prev_thread,const uint32_t __attribute__((unused)) current_thread)
+{
+    for(uint32_t j = index_low; j < current_thread; ++j) {
+        if(pok_threads[j].state == POK_STATE_RUNNABLE)  {
+            return j;
+        }
+    }
+   uint32_t res = current_thread;
+   uint8_t p = pok_threads[current_thread].deadline;
+   if(res == IDLE_THREAD) {
+       p = 0xff;
+   }
+
+   uint32_t i;
+
+   for(i = index_low; i <= index_high; ++i) {
+        if (pok_threads[i].state == POK_STATE_RUNNABLE && (pok_threads[i].deadline <= p || pok_threads[res].state != POK_STATE_RUNNABLE)) {
+            res = i;
+            p = pok_threads[i].deadline;
+        }
+   }
+
+   if (pok_threads[res].state != POK_STATE_RUNNABLE) {
+        res = IDLE_THREAD;
+   }
+   return res;
+}
+
+uint32_t pok_sched_part_fifo (const uint32_t index_low, const uint32_t index_high,const uint32_t __attribute__((unused)) prev_thread,const uint32_t __attribute__((unused)) current_thread)
+{
+   uint32_t res = index_low;
+   uint32_t i;
+   for(i = index_low + 1; i <= index_high; ++i) {
+       if(pok_threads[i].state == POK_STATE_RUNNABLE) {
+           res = i;
+           break;
+       }
+   } 
+   if(i > index_high) {
+       // main thread
+       res = index_low;
+   }
+
+   if (pok_threads[res].state != POK_STATE_RUNNABLE)
+   {
+      res = IDLE_THREAD;
+   }
+
+   return res;
+}
 
 uint32_t pok_sched_part_rr (const uint32_t index_low, const uint32_t index_high,const uint32_t prev_thread,const uint32_t current_thread)
 {

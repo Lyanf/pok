@@ -57,6 +57,12 @@ uint8_t pok_sched_election (void);
 uint32_t pok_sched_part_rr (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
 uint32_t pok_sched_part_rms (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
 
+uint32_t pok_sched_part_pri_p (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
+uint32_t pok_sched_part_pri_nop (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
+uint32_t pok_sched_part_edf_p (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
+uint32_t pok_sched_part_edf_nop (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
+uint32_t pok_sched_part_fifo (const uint32_t ,const uint32_t,const uint32_t prev_thread,const uint32_t current_thread);
+
 /* Context switch functions */
 void pok_sched_context_switch (const uint32_t);
 void pok_partition_switch (void);
