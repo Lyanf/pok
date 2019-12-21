@@ -75,7 +75,12 @@ void pok_partition_setup_scheduler (const uint8_t pid)
             break;
       }
 #else
-      pok_partitions[pid].sched_func  = &pok_sched_part_rr;
+      // pok_partitions[pid].sched_func  = &pok_sched_part_rr;
+      // pok_partitions[pid].sched_func  = &pok_sched_part_fifo;
+      pok_partitions[pid].sched_func  = &pok_sched_part_edf_nop;
+      // pok_partitions[pid].sched_func  = &pok_sched_part_edf_p;
+      // pok_partitions[pid].sched_func  = &pok_sched_part_pri_nop;
+      // pok_partitions[pid].sched_func  = &pok_sched_part_pri_p;
 #endif
 }
 

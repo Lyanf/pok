@@ -21,7 +21,6 @@
 #include <core/semaphore.h>
 #include <types.h>
 #include "activity.h"
-
 #include <types.h>
 
 #include <core/time.h>
@@ -39,37 +38,29 @@ int main ()
   pok_ret_t ret;
   pok_thread_attr_t     tattr;
 
-//   uint64_t tp;
-//   pok_time_get(&tp);
+  uint64_t start, end;
+  pok_time_get(&start);
 
   tattr.priority = 42;
-  tattr.deadline = 10000000;
-
   tattr.entry = pinger_job;
+  tattr.period = 1;
 
   ret = pok_thread_create(&tid , &tattr);
-  pok_thread_period();
+  printf("1st return=%d\n", ret);
+
+  // tattr.priority = 42;
+  // tattr.entry = pinger_job2;
 
 
-  tattr.priority = 22;
-  tattr.deadline = 5000000;
-
-  tattr.entry = pinger_job2;
+  // ret = pok_thread_create(&tid , &tattr);
+  // printf("2ed return=%d\n", ret);
 
 
-  ret = pok_thread_create(&tid , &tattr);
-
-  pok_thread_period();
-
-
-
-  tattr.priority = 32;
-  tattr.deadline = 3000000;
-
-  tattr.entry = pinger_job3;
-  ret = pok_thread_create(&tid, &tattr);
-  pok_thread_period();
-
+  // tattr.priority = 42;
+  // tattr.entry = pinger_job3;
+  // tattr.period = 10;
+  // ret = pok_thread_create(&tid, &tattr);
+  // printf("3rd return=%d\n", ret);
 
 
   pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);

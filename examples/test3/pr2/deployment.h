@@ -15,9 +15,14 @@
  */
 
 
-void user_hello_part1 ()
-{
-   printf( "Hello from part1\n");
-}
+#ifndef __POK_USER_GENERATED_DEPLOYMENT_H_
+#define __POK_USER_GENERATED_DEPLOYMENT_H_ 
 
+#define POK_NEEDS_TIMER    1
+#define POK_NEEDS_THREADS  1
 
+#define POK_CONFIG_NB_THREADS 1
+
+#define POK_NEEDS_LIBC_STDLIB 1
+
+#endif

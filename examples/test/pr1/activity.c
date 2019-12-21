@@ -54,19 +54,19 @@ void* pinger_job()
 {
 	printf("thead 1");
 	cpu_work(1000,1);
-//	while(1);
+	while(1);
 }
 
 void* pinger_job2()
 {
 	printf("thread 2");
 	cpu_work(100,2);
-//	while(1);
+	while(1);
 }
 
 void* pinger_job3()
 {
 	printf("thread 3");
 	cpu_work(500,3);
-//	while(1);
+	while(1);
 }

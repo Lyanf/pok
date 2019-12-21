@@ -1,0 +1,360 @@
+Archive member included to satisfy reference by file (symbol)
+
+/home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+                              main.o (pok_do_syscall)
+/home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+                              activity.o (pok_time_get)
+/home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+                              activity.o (printf)
+
+Allocating common symbols
+Common symbol       size              file
+
+pok_allocator_memspace
+                    0x8000            /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+errno               0x4               /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+K                   0x4               aes.o
+val                 0x2               activity.o
+Nk                  0x4               aes.o
+pok_allocator_spaces
+                    0x4b0             /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+sid                 0x2               main.o
+Nr                  0x4               aes.o
+
+Discarded input sections
+
+ .group         0x0000000000000000        0x8 main.o
+ .group         0x0000000000000000        0x8 activity.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 activity.o
+ .group         0x0000000000000000        0x8 aes.o
+ .group         0x0000000000000000        0x8 aes.o
+ .group         0x0000000000000000        0x8 aes.o
+ .group         0x0000000000000000        0x8 aes.o
+ .group         0x0000000000000000        0x8 aes.o
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 aes.o
+ .group         0x0000000000000000        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .group         0x0000000000000000        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .text.__x86.get_pc_thunk.di
+                0x0000000000000000        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .group         0x0000000000000000        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ .group         0x0000000000000000        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ .group         0x0000000000000000        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ .group         0x0000000000000000        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ .text.__x86.get_pc_thunk.ax
+                0x0000000000000000        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000000000        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ .text.__x86.get_pc_thunk.di
+                0x0000000000000000        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+*default*        0x0000000000000000 0xffffffffffffffff
+
+Linker script and memory map
+
+                0x0000000000000000                . = 0x0
+                0x0000000000000000                __partition_begin = .
+
+.text           0x0000000000000000     0x2537
+ *(.text)
+ .text          0x0000000000000000      0x13c main.o
+                0x0000000000000000                main
+ .text          0x000000000000013c      0x43e activity.o
+                0x000000000000013c                printu64
+                0x000000000000019a                cpu_work
+                0x00000000000001fc                pinger_job
+                0x0000000000000326                pinger_job2
+                0x0000000000000450                pinger_job3
+ .text          0x000000000000057a      0xcf7 aes.o
+                0x000000000000057a                gadd
+                0x0000000000000584                gsub
+                0x000000000000058e                coef_add
+                0x00000000000005ca                coef_mult
+                0x0000000000000708                Rcon
+                0x0000000000000779                add_round_key
+                0x000000000000084f                mix_columns
+                0x0000000000000928                inv_mix_columns
+                0x0000000000000a01                shift_rows
+                0x0000000000000abc                inv_shift_rows
+                0x0000000000000b9b                sub_bytes
+                0x0000000000000c0c                inv_sub_bytes
+                0x0000000000000c7d                sub_word
+                0x0000000000000ca9                rot_word
+                0x0000000000000ccc                aes_key_expansion
+                0x0000000000000e8e                aes_init
+                0x0000000000000f29                aes_cipher
+                0x00000000000010cc                aes_inv_cipher
+ .text          0x0000000000001271        0x0 gmult.o
+ .text          0x0000000000001271       0x14 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+                0x0000000000001271                pok_arch_idle
+                0x0000000000001274                pok_do_syscall
+ .text          0x0000000000001285      0x8ae /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+                0x0000000000001285                pok_allocator_allocate
+                0x00000000000013d9                pok_allocator_delete_space
+                0x0000000000001421                pok_allocator_merge_space
+                0x0000000000001510                pok_allocator_free
+                0x0000000000001613                pok_time_gettick
+                0x0000000000001672                pok_time_get
+                0x0000000000001691                __pok_partition_start
+                0x00000000000016be                pok_sem_create
+                0x000000000000174e                pok_sem_signal
+                0x00000000000017c4                pok_sem_status
+                0x00000000000017ca                pok_sem_wait
+                0x0000000000001850                pok_thread_create
+                0x00000000000018af                pok_thread_attr_init
+                0x00000000000018f9                pok_thread_period
+                0x0000000000001958                pok_thread_sleep
+                0x00000000000019b7                pok_thread_status
+                0x0000000000001a16                pok_thread_delayed_start
+                0x0000000000001a75                pok_thread_set_priority
+                0x0000000000001ad4                pok_thread_resume
+ .text          0x0000000000001b33      0xa04 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+                0x0000000000001e94                vprintf
+                0x0000000000001fff                printf
+                0x0000000000002026                itoa
+                0x00000000000020cd                atoi
+                0x000000000000210e                memcpy
+                0x0000000000002136                memset
+                0x0000000000002158                memcmp
+                0x00000000000021a5                strcmp
+                0x00000000000021e7                strncmp
+                0x0000000000002245                strcpy
+                0x0000000000002275                strncpy
+                0x00000000000022ad                streq
+                0x0000000000002362                strlen
+                0x0000000000002381                __udivdi3
+                0x000000000000243b                __umoddi3
+                0x0000000000002473                rand
+                0x00000000000024ad                free
+                0x00000000000024d9                malloc
+                0x0000000000002505                calloc
+
+.text.__x86.get_pc_thunk.bx
+                0x0000000000002537        0x4
+ .text.__x86.get_pc_thunk.bx
+                0x0000000000002537        0x4 main.o
+                0x0000000000002537                __x86.get_pc_thunk.bx
+
+.iplt           0x0000000000002540        0x0
+ .iplt          0x0000000000002540        0x0 main.o
+
+.text.__x86.get_pc_thunk.ax
+                0x000000000000253b        0x4
+ .text.__x86.get_pc_thunk.ax
+                0x000000000000253b        0x4 aes.o
+                0x000000000000253b                __x86.get_pc_thunk.ax
+
+.text.__x86.get_pc_thunk.cx
+                0x000000000000253f        0x4
+ .text.__x86.get_pc_thunk.cx
+                0x000000000000253f        0x4 aes.o
+                0x000000000000253f                __x86.get_pc_thunk.cx
+
+.text.__x86.get_pc_thunk.si
+                0x0000000000002543        0x4
+ .text.__x86.get_pc_thunk.si
+                0x0000000000002543        0x4 aes.o
+                0x0000000000002543                __x86.get_pc_thunk.si
+
+.text.__x86.get_pc_thunk.di
+                0x0000000000002547        0x4
+ .text.__x86.get_pc_thunk.di
+                0x0000000000002547        0x4 aes.o
+                0x0000000000002547                __x86.get_pc_thunk.di
+
+.text.__x86.get_pc_thunk.bp
+                0x000000000000254b        0x4
+ .text.__x86.get_pc_thunk.bp
+                0x000000000000254b        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+                0x000000000000254b                __x86.get_pc_thunk.bp
+
+.rodata         0x0000000000002560      0x411
+ *(.rodata)
+ .rodata        0x0000000000002560      0x400 aes.o
+ .rodata        0x0000000000002960       0x11 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.eh_frame       0x0000000000002974      0xe10
+ .eh_frame      0x0000000000002974       0x70 main.o
+ .eh_frame      0x00000000000029e4      0x1c4 activity.o
+                                        0x1f0 (size before relaxing)
+ .eh_frame      0x0000000000002ba8      0x3c4 aes.o
+                                        0x3f0 (size before relaxing)
+ .eh_frame      0x0000000000002f6c       0x30 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+                                         0x60 (size before relaxing)
+ .eh_frame      0x0000000000002f9c      0x324 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+                                        0x4b4 (size before relaxing)
+ .eh_frame      0x00000000000032c0      0x4c4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+                                        0x680 (size before relaxing)
+
+.rodata.str1.1  0x0000000000003784       0xaa
+ .rodata.str1.1
+                0x0000000000003784       0xaa activity.o
+
+.rel.dyn        0x0000000000003830        0x0
+ .rel.got       0x0000000000003830        0x0 main.o
+ .rel.iplt      0x0000000000003830        0x0 main.o
+ .rel.text      0x0000000000003830        0x0 main.o
+
+.data           0x0000000000003840    0x285f0
+ *(.data)
+ .data          0x0000000000003840        0x0 main.o
+ .data          0x0000000000003840       0x40 activity.o
+                0x0000000000003840                key
+ .data          0x0000000000003880        0xc aes.o
+                0x0000000000003880                R
+                0x0000000000003888                Nb
+ *fill*         0x000000000000388c       0x14 
+ .data          0x00000000000038a0    0x20000 gmult.o
+                0x00000000000038a0                gmult_aes
+ .data          0x00000000000238a0        0x0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .data          0x00000000000238a0        0x0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .data          0x00000000000238a0        0x4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ *(.bss)
+ .bss           0x00000000000238a4        0x0 main.o
+ .bss           0x00000000000238a4        0x0 activity.o
+ .bss           0x00000000000238a4        0x0 aes.o
+ .bss           0x00000000000238a4        0x0 gmult.o
+ .bss           0x00000000000238a4        0x0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .bss           0x00000000000238a4        0x8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+                0x00000000000238a4                pok_allocator_initialized
+                0x00000000000238a8                pok_allocator_used_spaces
+ *fill*         0x00000000000238ac       0x14 
+ .bss           0x00000000000238c0       0x84 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+ *(COMMON)
+ COMMON         0x0000000000023944        0x2 main.o
+                0x0000000000023944                sid
+ COMMON         0x0000000000023946        0x2 activity.o
+                0x0000000000023946                val
+ COMMON         0x0000000000023948        0xc aes.o
+                0x0000000000023948                K
+                0x000000000002394c                Nk
+                0x0000000000023950                Nr
+ *fill*         0x0000000000023954        0xc 
+ COMMON         0x0000000000023960     0x84d0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+                0x0000000000023960                pok_allocator_memspace
+                0x000000000002b960                errno
+                0x000000000002b980                pok_allocator_spaces
+                0x000000000002be30                __partition_end = .
+LOAD main.o
+LOAD activity.o
+LOAD aes.o
+LOAD gmult.o
+LOAD /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a
+LOAD /home/ubuntu/pok/examples/test2/pr1/../../..//libpok//libpok.a
+OUTPUT(pr1.elf elf32-i386)
+
+.got            0x000000000002be30        0x0
+ .got           0x000000000002be30        0x0 main.o
+
+.got.plt        0x000000000002be30        0xc
+ .got.plt       0x000000000002be30        0xc main.o
+                0x000000000002be30                _GLOBAL_OFFSET_TABLE_
+
+.igot.plt       0x000000000002be3c        0x0
+ .igot.plt      0x000000000002be3c        0x0 main.o
+
+.data.rel.ro.local
+                0x000000000002be40       0x6c
+ .data.rel.ro.local
+                0x000000000002be40       0x6c /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_info     0x0000000000000000     0x54d5
+ .debug_info    0x0000000000000000      0x416 main.o
+ .debug_info    0x0000000000000416      0x3d7 activity.o
+ .debug_info    0x00000000000007ed      0x7f9 aes.o
+ .debug_info    0x0000000000000fe6       0x8b gmult.o
+ .debug_info    0x0000000000001071      0x32f /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .debug_info    0x00000000000013a0     0x2b62 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .debug_info    0x0000000000003f02     0x15d3 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_abbrev   0x0000000000000000     0x1dbb
+ .debug_abbrev  0x0000000000000000      0x100 main.o
+ .debug_abbrev  0x0000000000000100      0x13b activity.o
+ .debug_abbrev  0x000000000000023b      0x1fd aes.o
+ .debug_abbrev  0x0000000000000438       0x5f gmult.o
+ .debug_abbrev  0x0000000000000497      0x11b /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .debug_abbrev  0x00000000000005b2      0xce9 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .debug_abbrev  0x000000000000129b      0xb20 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_aranges  0x0000000000000000      0x4c8
+ .debug_aranges
+                0x0000000000000000       0x20 main.o
+ .debug_aranges
+                0x0000000000000020       0x20 activity.o
+ .debug_aranges
+                0x0000000000000040       0x20 aes.o
+ .debug_aranges
+                0x0000000000000060       0x18 gmult.o
+ .debug_aranges
+                0x0000000000000078       0x40 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .debug_aranges
+                0x00000000000000b8      0x1f8 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .debug_aranges
+                0x00000000000002b0      0x218 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_line     0x0000000000000000     0x1d95
+ .debug_line    0x0000000000000000      0x153 main.o
+ .debug_line    0x0000000000000153      0x1d6 activity.o
+ .debug_line    0x0000000000000329      0x32a aes.o
+ .debug_line    0x0000000000000653       0x84 gmult.o
+ .debug_line    0x00000000000006d7       0xf4 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .debug_line    0x00000000000007cb      0xbc1 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .debug_line    0x000000000000138c      0xa09 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_str      0x0000000000000000     0x140f
+ .debug_str     0x0000000000000000      0x8cf main.o
+                                        0x90c (size before relaxing)
+ .debug_str     0x00000000000008cf       0x7e activity.o
+                                        0x1bd (size before relaxing)
+ .debug_str     0x000000000000094d       0xb3 aes.o
+                                        0x229 (size before relaxing)
+ .debug_str     0x0000000000000a00        0x8 gmult.o
+                                        0x12c (size before relaxing)
+ .debug_str     0x0000000000000a08       0x76 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+                                        0x8b9 (size before relaxing)
+ .debug_str     0x0000000000000a7e      0x68a /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+                                       0x7503 (size before relaxing)
+ .debug_str     0x0000000000001108      0x307 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+                                       0x1803 (size before relaxing)
+
+.comment        0x0000000000000000       0x2b
+ .comment       0x0000000000000000       0x2b main.o
+                                         0x2c (size before relaxing)
+ .comment       0x000000000000002b       0x2c activity.o
+ .comment       0x000000000000002b       0x2c aes.o
+ .comment       0x000000000000002b       0x2c gmult.o
+ .comment       0x000000000000002b       0xb0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .comment       0x000000000000002b      0x630 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .comment       0x000000000000002b      0x2ec /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.note.GNU-stack
+                0x0000000000000000        0x0
+ .note.GNU-stack
+                0x0000000000000000        0x0 main.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 activity.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 aes.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 gmult.o
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(arch.lo)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .note.GNU-stack
+                0x0000000000000000        0x0 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_loc      0x0000000000000000     0x1d2e
+ .debug_loc     0x0000000000000000      0x15a activity.o
+ .debug_loc     0x000000000000015a      0x7ca aes.o
+ .debug_loc     0x0000000000000924      0x2ea /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(core.lo)
+ .debug_loc     0x0000000000000c0e     0x1120 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)
+
+.debug_ranges   0x0000000000000000       0x68
+ .debug_ranges  0x0000000000000000       0x68 /home/ubuntu/pok/examples/test2/pr1/../../..//libpok/libpok.a(libc.lo)

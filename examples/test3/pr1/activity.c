@@ -33,6 +33,11 @@ uint8_t key[] = {
 		0x18, 0x19, 0x1a, 0x1b,
 		0x1c, 0x1d, 0x1e, 0x1f};
 
+	uint8_t in[] = {
+		0x00, 0x11, 0x22, 0x33,
+		0x44, 0x55, 0x66, 0x77,
+		0x88, 0x99, 0xaa, 0xbb,
+		0xcc, 0xdd, 0xee, 0xff};
 extern uint8_t sid;
 uint8_t val;
 
@@ -43,8 +48,9 @@ void printu64(uint64_t x) {
     }
 
 }
-void cpu_work(uint8_t in[], int id) {
+void cpu_work(int cycle,int id) {
 	uint64_t q = 1;
+	pok_time_t start, end;
 
 	uint8_t out[16]; // 128
 
@@ -52,88 +58,41 @@ void cpu_work(uint8_t in[], int id) {
 	 
  	w = aes_init(sizeof(key));
 
-	aes_key_expansion(key, w);
-	int i = 0;
-	for(int i = 0; i < 100000; i++) {
-		aes_cipher(in /* in */, out /* out */, w /* expanded key */);
-	}
-
-}
-void* pinger_job()
-{
-	
-	int id = 1;
-	pok_time_t start, end;
 	pok_time_get(&start);
-
-	printf("Enter thead 1\n");
-	uint8_t in[] = {
-		0x00, 0x11, 0x22, 0x33,
-		0x44, 0x55, 0x66, 0x77,
-		0x88, 0x99, 0xaa, 0xbb,
-		0xcc, 0xdd, 0xee, 0xff};
-	
-	cpu_work(in,1);
-
+	for(int i = 0; i < 1000; ++i) {
+		aes_key_expansion(key, w);
+	}
 	pok_time_get(&end);
+	int i = 0;
+// 	for(int i = 0; i < 100000; i++) {
+// 		aes_cipher(in /* in */, out /* out */, w /* expanded key */);
+// 	}
+
+	//pok_time_get(&end);
 	printf("time----%d: begin_time %u\n",id, start);
 	printf("time----%d: end_time:%u\n",id, end);
 	printf("time----%d: %u\n",id, end-start);
-
+}
+void* pinger_job()
+{
+	printf("thead 1 created\n");
+	cpu_work(1000,1);
 	printf("thead 1 finished\n");
-	return NULL;
-	// while(1);
+	while(1);
 }
 
 void* pinger_job2()
 {
-
-	int id = 2;
-	pok_time_t start, end;
-	pok_time_get(&start);
-
-	printf("Enter thead 2\n");
-	uint8_t in[] = {
-		0x00, 0x11, 0x22, 0x33,
-		0x44, 0x55, 0x66, 0x77,
-		0x88, 0x99, 0xaa, 0xbb,
-		0xcc, 0xdd, 0xee, 0xff};
-
-	cpu_work(in,2);
-
-	pok_time_get(&end);
-	printf("time----%d: begin_time %u\n",id, start);
-	printf("time----%d: end_time:%u\n",id, end);
-	printf("time----%d: %u\n",id, end-start);
-
+	printf("thead 2 created\n");
+	cpu_work(100,2);
 	printf("thead 2 finished\n");
-
-	return NULL;
-	// while(1);
+	while(1);
 }
 
 void* pinger_job3()
 {
-	int id = 3;
-	pok_time_t start, end;
-	pok_time_get(&start);
-
-	printf("Enter thead 3\n");
-	uint8_t in[] = {
-		0x00, 0x11, 0x22, 0x33,
-		0x44, 0x55, 0x66, 0x77,
-		0x88, 0x99, 0xaa, 0xbb,
-		0xcc, 0xdd, 0xee, 0xff};
-
-	cpu_work(in,3);
-
-	pok_time_get(&end);
-	printf("time----%d: begin_time %u\n",id, start);
-	printf("time----%d: end_time:%u\n",id, end);
-	printf("time----%d: %u\n",id, end-start);
-
+	printf("thead 3 created\n");
+	cpu_work(500,3);
 	printf("thead 3 finished\n");
-
-	return NULL;
-	// while(1);
+	while(1);
 }

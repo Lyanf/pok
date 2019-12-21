@@ -15,9 +15,14 @@
  */
 
 
-void user_hello_part2 ()
+#include <libc/stdio.h>
+#include <core/thread.h>
+void* pinger_job ()
 {
-   printf( "Hello from part2\n");
+   while (1)
+   {
+      printf("P2T1: begin of task\n");
+      pok_thread_sleep (5000000);
+   }
 }
-
 
