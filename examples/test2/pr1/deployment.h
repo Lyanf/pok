@@ -15,29 +15,17 @@
  */
 
 
-#include <core/thread.h>
-#include <core/partition.h>
-#include <types.h>
-#include "activity.h"
+#ifndef __POK_USER_GENERATED_DEPLOYMENT_H_
+#define __POK_USER_GENERATED_DEPLOYMENT_H_ 
 
+#define POK_NEEDS_TIMER 1
+#define POK_NEEDS_THREADS 1
 
-int main ()
-{
-  //uint8_t tid;
-  //int ret;
-  //pok_thread_attr_t     tattr;
+// #define POK_NEEDS_DEBUG 1
+#define POK_NEEDS_CONSOLE 1
 
-  //tattr.priority = 42;
-  //tattr.entry = pinger_job;
+#define POK_NEEDS_SEMAPHORES 1
 
-  //ret = pok_thread_create(&tid , &tattr);
-  //printf ("[P2] thread create returns=%d\n", ret);
+#define POK_NEEDS_LIBC_STDLIB 1
 
-  //pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);
-  //pok_thread_wait_infinite ();
-
-
-  return (1);
-}
-
-
+#endif

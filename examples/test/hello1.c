@@ -15,29 +15,9 @@
  */
 
 
-#include <core/thread.h>
-#include <core/partition.h>
-#include <types.h>
-#include "activity.h"
-
-
-int main ()
+void user_hello_part1 ()
 {
-  //uint8_t tid;
-  //int ret;
-  //pok_thread_attr_t     tattr;
-
-  //tattr.priority = 42;
-  //tattr.entry = pinger_job;
-
-  //ret = pok_thread_create(&tid , &tattr);
-  //printf ("[P2] thread create returns=%d\n", ret);
-
-  //pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);
-  //pok_thread_wait_infinite ();
-
-
-  return (1);
+   printf( "Hello from part1\n");
 }
 
 

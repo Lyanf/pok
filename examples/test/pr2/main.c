@@ -36,8 +36,7 @@ int main ()
   //pok_partition_set_mode (POK_PARTITION_MODE_NORMAL);
   //pok_thread_wait_infinite ();
 
-
-  return (1);
+  //return (1);
 }
 
 
